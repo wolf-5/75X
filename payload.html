@@ -1,4 +1,4 @@
-<html><meta charset="utf-8" />
+<html>
 <body style="background-color:#030402;color:white;font-size:25px;text-align:center;">
 <h1 style='font-size:50px;margin:0;'>THE WOLF GAMES 7.55</h1>
 <head><title>THE WOLF GAMES 7.55</title></head> 
@@ -47,12 +47,12 @@ function done()
 window.midExploit = function()
 {
     var params = getHashParams();
-    var scripts = ['blob.js', 'jb.js'];
+    var scripts = ['./blob.js', './jb.js'];
     if('p0' in params)
         scripts.push(params.p0);
     if('p1' in params)
         scripts.push(params.p1);
-    scripts.push('netcat.js');
+    scripts.push('./netcat.js');
     preloadScripts(scripts, go);
 }
 
