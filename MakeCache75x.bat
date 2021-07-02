@@ -7,7 +7,7 @@ set LOC=%~dp0
 
 dir /B /S /A:-D >> test0.txt
 
-findstr /v "media .bat .exe .mp4 .git .py restore New folder offlineCache75x.manifest test0.txt" test0.txt > test.txt
+findstr /v "media .bat .exe .mp4 .git .py restore New folder offlineCache75X.manifest test0.txt" test0.txt > test.txt
 del test0.txt
 
 @echo off
@@ -27,9 +27,9 @@ set "firstLineReady="
 if defined firstLineReady (echo()
 set "firstLineReady=1"
 <nul set /p "=%%a")
-) > offlineCache75x.manifest
+) > offlineCache75X.manifest
 del test.txt
 
-echo offlineCache75x.manifest created!!
+echo offlineCache75X.manifest created!!
 
 sleep 2
