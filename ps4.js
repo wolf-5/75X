@@ -185,13 +185,13 @@ function toggle_payload(pld){
 		preloadScripts(['preloader.js', 'gtava3.js', 'loader.js']);
 	}else if(pld == "rd2113"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
-		preloadScripts(['preloader.js', '755-Oysters-Free-1.13.js', 'loader.js']);
+		preloadScripts(['preloader.js', 'Oysters-1.13.js', 'loader.js']);
 	}else if(pld == "rd2114"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
-		preloadScripts(['preloader.js', '755-Oysters-Free-1.19.js', 'loader.js']);
+		preloadScripts(['preloader.js', 'Oysters-1.19.js', 'loader.js']);
 	}else if(pld == "rd2124"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
-		preloadScripts(['preloader.js', '755-Oysters-Free-1.24.js', 'loader.js']);
+		preloadScripts(['preloader.js', 'Oysters-1.24.js', 'loader.js']);
 	}
 	if(window.postPayload)
 		window.postPayload();

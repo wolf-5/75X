@@ -1,9 +1,6 @@
 CACHE MANIFEST 
 # v2.5.5 Self-Host 
 
-755-Oysters-Free-1.13.js
-755-Oysters-Free-1.19.js
-755-Oysters-Free-1.24.js
 app2usb.js
 backup.js
 disableupdates.js
@@ -36,6 +33,9 @@ oldjb1.js
 oldjb2.js
 oldjb3.js
 oldjb4.js
+Oysters-1.13.js
+Oysters-1.19.js
+Oysters-1.24.js
 payload.js
 preloader.js
 preloader750.js
