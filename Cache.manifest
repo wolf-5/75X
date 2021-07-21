@@ -1,9 +1,9 @@
 CACHE MANIFEST 
 
 CACHE: 
-1preloader.js
 app2usb.js
 backup.js
+Cache.manifest
 disableupdates.js
 dumper.js
 enableupdates.js
@@ -30,14 +30,7 @@ kernelclock.js
 linuxl1gb.js
 linuxl3gb.js
 loader.js
-oldjb.js
-oldjb1.js
-oldjb2.js
-oldjb3.js
-oldjb4.js
-oyster113.js
-oyster119.js
-oyster124.js
+mira.js
 payload.js
 preloader.js
 preloader750.js
