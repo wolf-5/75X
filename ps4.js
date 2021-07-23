@@ -113,7 +113,7 @@ function toggle_payload(pld){
 		preloadScripts(['preloader.js', 'restore.js', 'loader.js']);
 	}else if(pld == "dumper"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
-		preloadScripts(['preloader.js', 'kerneldumper.js', 'loader.js']);
+		preloadScripts(['preloader.js', 'dumper.js', 'loader.js']);
 	}else if(pld == "app2usb"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
 		preloadScripts(['preloader.js', 'app2usb.js', 'loader.js']);
@@ -131,19 +131,19 @@ function toggle_payload(pld){
 		preloadScripts(['preloader.js', 'loader.js']);
 	}else if(pld == "kernelclock"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
-		preloadScripts(['preloader.js', 'enablebrowser.js', 'loader.js']);
+		preloadScripts(['preloader.js', 'kernelclock.js', 'loader.js']);
 	}else if(pld == "idu"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
 		preloadScripts(['preloader.js', 'idu.js', 'loader.js']);
 	}else if(pld == "rifrenamer"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
 		preloadScripts(['preloader.js', 'rifrenamer.js', 'loader.js']);
-	}else if(pld == "linux1gb"){
+	}else if(pld == "linuxl1gb"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
-		preloadScripts(['preloader.js', 'linux1G.js', 'loader.js']);
-	}else if(pld == "linux3gb"){
+		preloadScripts(['preloader.js', 'linuxl1gb.js', 'loader.js']);
+	}else if(pld == "linuxl3gb"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
-		preloadScripts(['preloader.js', 'linux3G.js', 'loader.js']);
+		preloadScripts(['preloader.js', 'linuxl3gb.js', 'loader.js']);
 	}else if(pld == "Toolbox"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
 		preloadScripts(['preloader.js', 'Toolbox.js', 'loader.js']);
@@ -168,6 +168,9 @@ function toggle_payload(pld){
 	}else if(pld == "gtava3"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
 		preloadScripts(['preloader.js', 'gtava3.js', 'loader.js']);
+	}else if(pld == "gtavl"){
+		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		preloadScripts(['preloader.js', 'gtavl.js', 'loader.js']);	
 	}else if(pld == "rd2113"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
 		preloadScripts(['preloader.js', 'oyster113.js', 'loader.js']);
