@@ -62,7 +62,24 @@
 		  font-size: 35px;
 		  padding-top: 5px;
 		}
-	</style>
+
+		.TextCaption{
+		display: block;
+		  font-size: 20px;
+		  color: #fff;
+		  text-decoration: none;
+		}
+		  a img {
+		  display: inline-block;  text-decoration: none;
+		}
+		  a {
+		  display: inline-block;  text-decoration: none;
+		}
+
+		  a:hover img, a:hover .TextCaption{
+		  transform: scale(1.1)
+		}	
+</style>
 	<body onload="go()" class="bg">
 		<script>
 		var fw = (navigator.userAgent.substring(navigator.userAgent.indexOf('5.0 (') + 19, navigator.userAgent.indexOf(') Apple'))).replace('.', '');;
