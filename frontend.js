@@ -4,7 +4,9 @@ var mailbox = {
     account_id: [0, 0, 0, 0, 0, 0, 0, 0],
     account_name: "",
 };
+
 var base = 0x9111110000;
+
 function call_native()
 {
     write_ptr_at(base+0x10, mailbox.idx);
@@ -26,15 +28,15 @@ function call_native()
         ss += String.fromCharCode(sb[i]);
     mailbox.account_name = decodeURIComponent(escape(ss));
 }
+
 function makeUI()
 {
     var root = document.createElement('div');
     root.style.position = 'absolute';
-    root.style.top =  100;
-    root.style.left = 400;
-    root.style.width = root.style.height = '50%';
+    root.style.top = root.style.left = 0;
+    root.style.width = root.style.height = '100%';
     root.style.zIndex = 1000;
-    root.style.background = '#1A1920';
+    root.style.background = 'white';
     var p = document.createElement('p');
     root.appendChild(p);
     var italic = document.createElement('i');
@@ -78,7 +80,9 @@ function makeUI()
     document.body.appendChild(root);
     return fields;
 }
+
 var ui = makeUI();
+
 function setRandomID(idx)
 {
     var s = '';
@@ -87,6 +91,7 @@ function setRandomID(idx)
     ui[idx].id.value = s;
     return false;
 }
+
 function fetchAccount(i)
 {
     mailbox.idx = i;
@@ -131,11 +136,13 @@ function fetchAccount(i)
         ui[i].button.disabled = false;
     }
 }
+
 function fetchAccounts()
 {
     for(var i = 0; i < 16; i++)
         fetchAccount(i);
 }
+
 function activateAccount(idx)
 {
     mailbox.idx = idx;
@@ -161,7 +168,9 @@ function activateAccount(idx)
         alert("PSN ID set successfully!");
     return false;
 }
+
 fetchAccounts();
+
 for(var i = 0; i < 16; i++)
 {
     ui[i].username.onclick = setRandomID.bind(window, i);

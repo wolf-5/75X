@@ -1,6 +1,5 @@
 function Int64(low, high) {
     var bytes = new Uint8Array(8);
-
     if (arguments.length > 2 || arguments.length == 0)
         throw TypeError("Incorrect number of arguments to constructor");
     if (arguments.length == 2) {
@@ -16,7 +15,6 @@ function Int64(low, high) {
         }
         low = "0x" + high.toString(16) + low;
     }
-
     switch (typeof low) {
         case 'number':
             low = '0x' + Math.floor(low).toString(16);
@@ -44,16 +42,11 @@ function Int64(low, high) {
         case 'undefined':
             break;
     }
-
-
     this.asDouble = function () {
-
         if (bytes[7] == 0xff && (bytes[6] == 0xff || bytes[6] == 0xfe))
             throw new RangeError("Can not be represented by a double");
-
         return Struct.unpack(Struct.float64, bytes);
     };
-
     this.asInteger = function () {
         if (bytes[7] != 0 || bytes[6] > 0x20) {
             debug_log("SOMETHING BAD HAS HAPPENED!!!");
@@ -62,19 +55,13 @@ function Int64(low, high) {
         }
         return Struct.unpack(Struct.int64, bytes);
     };
-
-
     this.asJSValue = function () {
         if ((bytes[7] == 0 && bytes[6] == 0) || (bytes[7] == 0xff && bytes[
             6] == 0xff))
             throw new RangeError(
                 "Can not be represented by a JSValue");
-
-
         return Struct.unpack(Struct.float64, this.sub(0x1000000000000).bytes());
     };
-
-
     this.bytes = function () {
         var arr = [];
         for (var i = 0; i < bytes.length; i++) {
@@ -82,13 +69,9 @@ function Int64(low, high) {
         }
         return arr;
     };
-
-
     this.byteAt = function (i) {
         return bytes[i];
     };
-
-
     this.toString = function () {
         var arr = [];
         for (var i = 0; i < bytes.length; i++) {
@@ -96,15 +79,12 @@ function Int64(low, high) {
         }
         return '0x' + hexlify(arr.reverse());
     };
-
     this.low32 = function () {
         return new Uint32Array(bytes.buffer)[0] >>> 0;
     };
-
     this.hi32 = function () {
         return new Uint32Array(bytes.buffer)[1] >>> 0;
     };
-
     this.equals = function (other) {
         if (!(other instanceof Int64)) {
             other = new Int64(other);
@@ -115,7 +95,6 @@ function Int64(low, high) {
         }
         return true;
     };
-
     this.greater = function (other) {
         if (!(other instanceof Int64)) {
             other = new Int64(other);
@@ -128,7 +107,6 @@ function Int64(low, high) {
         }
         return false;
     };
-
     function operation(f, nargs) {
         return function () {
             if (arguments.length != nargs)
@@ -144,14 +122,12 @@ function Int64(low, high) {
             return f.apply(this, new_args);
         };
     }
-
     this.neg = operation(function neg() {
         var ret = [];
         for (var i = 0; i < 8; i++)
             ret[i] = ~this.byteAt(i);
         return new Int64(ret).add(Int64.One);
     }, 0);
-
     this.add = operation(function add(a) {
         var ret = [];
         var carry = 0;
@@ -162,7 +138,6 @@ function Int64(low, high) {
         }
         return new Int64(ret);
     }, 1);
-
     this.assignAdd = operation(function assignAdd(a) {
         var carry = 0;
         for (var i = 0; i < 8; i++) {
@@ -172,8 +147,6 @@ function Int64(low, high) {
         }
         return this;
     }, 1);
-
-
     this.sub = operation(function sub(a) {
         var ret = [];
         var carry = 0;
@@ -185,12 +158,10 @@ function Int64(low, high) {
         return new Int64(ret);
     }, 1);
 }
-
 Int64.fromDouble = function (d) {
     var bytes = Struct.pack(Struct.float64, d);
     return new Int64(bytes);
 };
-
 Int64.Zero = new Int64(0);
 Int64.One = new Int64(1);
 Int64.NegativeOne = new Int64(0xffffffff, 0xffffffff);
