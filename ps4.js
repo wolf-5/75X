@@ -126,7 +126,6 @@ function toggle_payload(pld){
 	}else if(pld == "ps4debug"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
 		preloadScripts(['preloader.js', 'ps4debug.js', 'loader.js']);
-	}
 	else if(pld == "web"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
 		preloadScripts(['preloader.js', 'payload.js', 'loader.js', 'frontend.js']);
