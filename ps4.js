@@ -126,7 +126,7 @@ function toggle_payload(pld){
 	}else if(pld == "ps4debug"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
 		preloadScripts(['preloader.js', 'ps4debug.js', 'loader.js']);
-	else if(pld == "web"){
+	}else if(pld == "web"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
 		preloadScripts(['preloader.js', 'payload.js', 'loader.js', 'frontend.js']);
 	}else if(pld == "todex"){
@@ -176,13 +176,13 @@ function toggle_payload(pld){
 		preloadScripts(['preloader.js', 'gtavl.js', 'loader.js']);	
 	}else if(pld == "rd2113"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
-		preloadScripts(['preloader.js', 'oyster113.js', 'loader.js']);
+		preloadScripts(['preloader.js', 'red113.js', 'loader.js']);
 	}else if(pld == "rd2119"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
-		preloadScripts(['preloader.js', 'oyster119.js', 'loader.js']);
+		preloadScripts(['preloader.js', 'red119.js', 'loader.js']);
 	}else if(pld == "rd2124"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
-		preloadScripts(['preloader.js', 'oyster124.js', 'loader.js']);
+		preloadScripts(['preloader.js', 'red124.js', 'loader.js']);
 	}
 	if(window.postPayload)
 		window.postPayload();
