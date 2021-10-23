@@ -88,19 +88,19 @@ function toggle_payload(pld){
 	if(pld == "exploit"){
 		document.getElementById("progress").innerHTML="Running Jailbreak.. Please wait!!";
 		preloadScripts(['jb.js']);
-	}else if(pld == "goldhen1"){
-		document.getElementById("progress").innerHTML="Loading GoldHenv1.0.. Please wait..";
-		if(fw=="755"){
-			preloadScripts(['preloader.js', 'goldhen1v'+fw+'.js', 'loader.js']);
-	}else{
-			preloadScripts(['preloader'+fw+'.js', 'goldhen1v'+fw+'.js', 'loader.js']);	
-		}
 	}else if(pld == "goldhen"){
-		document.getElementById("progress").innerHTML="Loading GoldHenv1.1.. Please wait..";
+		document.getElementById("progress").innerHTML="Loading GoldHenv1.0.. Please wait..";
 		if(fw=="755"){
 			preloadScripts(['preloader.js', 'goldhen'+fw+'.js', 'loader.js']);
 	}else{
 			preloadScripts(['preloader'+fw+'.js', 'goldhen'+fw+'.js', 'loader.js']);	
+		}
+	}else if(pld == "goldhenold"){
+		document.getElementById("progress").innerHTML="Loading GoldHenv1.1.. Please wait..";
+		if(fw=="755"){
+			preloadScripts(['preloader.js', 'goldhen1v'+fw+'.js', 'loader.js']);
+	}else{
+			preloadScripts(['preloader'+fw+'.js', 'goldhen1v'+fw+'.js', 'loader.js']);	
 		}
 	}else if(pld == "hen213b"){
 		document.getElementById("progress").innerHTML="Loading Hen v2.1.3b ... Please wait..";
