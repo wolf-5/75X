@@ -89,11 +89,14 @@ function toggle_payload(pld){
 		document.getElementById("progress").innerHTML="Running Jailbreak.. Please wait!!";
 		preloadScripts(['jb.js']);
 	}else if(pld == "goldhen"){
-		document.getElementById("progress").innerHTML="Loading GoldHenv1.1.. Please wait..";
+		document.getElementById("progress").innerHTML="Loading GoldHen v1.0.. Please wait..";
 		preloadScripts(['preloader.js', 'goldhen.js', 'loader.js']);	
 	}else if(pld == "goldhenold"){
-		document.getElementById("progress").innerHTML="Loading GoldHenv1.0.. Please wait..";
-		preloadScripts(['preloader.js', 'goldhenold.js', 'loader.js']);	
+		document.getElementById("progress").innerHTML="Loading GoldHen v1.1.. Please wait..";
+		preloadScripts(['preloader.js', 'goldhen1.js', 'loader.js']);
+	}else if(pld == "goldhen2"){
+		document.getElementById("progress").innerHTML="Loading GoldHen v2.0.. Please wait..";
+		preloadScripts(['preloader.js', 'goldhen2.js', 'loader.js']);		
 	}else if(pld == "toolbox"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
 		preloadScripts(['preloader.js', 'Toolbox755.js', 'loader.js']);			
@@ -154,6 +157,9 @@ function toggle_payload(pld){
 	}else if(pld == "fan"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
 		preloadScripts(['preloader.js', 'fanThreshold.js', 'loader.js']);
+	}else if(pld == "Beefqueef"){
+		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		preloadScripts(['preloader.js', 'Beefqueefmod133.js', 'loader.js']);		
 	}else if(pld == "ArabicGuy100"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
 		preloadScripts(['preloader.js', 'gtava1.js', 'loader.js']);
