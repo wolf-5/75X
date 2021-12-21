@@ -89,17 +89,11 @@ function toggle_payload(pld){
 		document.getElementById("progress").innerHTML="Running Jailbreak.. Please wait!!";
 		preloadScripts(['jb.js']);
 	}else if(pld == "goldhen"){
-		document.getElementById("progress").innerHTML="Loading GoldHen v1.0.. Please wait..";
-		preloadScripts(['preloader.js', 'goldhen.js', 'loader.js']);	
-	}else if(pld == "goldhenold"){
-		document.getElementById("progress").innerHTML="Loading GoldHen v1.1.. Please wait..";
-		preloadScripts(['preloader.js', 'goldhen1.js', 'loader.js']);
-	}else if(pld == "goldhen2"){
 		document.getElementById("progress").innerHTML="Loading GoldHen v2.0.. Please wait..";
-		preloadScripts(['preloader.js', 'goldhen2.js', 'loader.js']);		
+		preloadScripts(['preloader.js', 'goldhen755.js', 'loader.js']);		
 	}else if(pld == "toolbox"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
-		preloadScripts(['preloader.js', 'Toolbox755.js', 'loader.js']);			
+		preloadScripts(['preloader.js', 'Toolbox.js', 'loader.js']);			
 	}else if(pld == "backup"){
 		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
 		preloadScripts(['preloader.js', 'backup.js', 'loader.js']);
